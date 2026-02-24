@@ -141,6 +141,7 @@ func (h *ProductHandler) DeleteProduct(w http.ResponseWriter, r *http.Request) {
 	_, err = h.ProductDB.FindById(id)
 	if err != nil {
 		w.WriteHeader(http.StatusNotFound)
+		return
 	}
 
 	err = h.ProductDB.Delete(id)
