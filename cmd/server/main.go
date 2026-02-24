@@ -27,7 +27,7 @@ func main() {
 
 	r := chi.NewRouter()
 	r.Post("/products", productHandler.CreateProduct)
-	// Gr.Get("/products", productHandler.GetAllProducts)
+	r.Get("/products", productHandler.GetAllProducts)
 	r.Get("/products/{id}", productHandler.GetProduct)
 	r.Put("/products/{id}", productHandler.UpdateProduct)
 	r.Delete("/products/{id}", productHandler.DeleteProduct)
