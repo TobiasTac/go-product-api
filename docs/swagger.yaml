@@ -1,0 +1,21 @@
+basePath: /
+host: localhost:8000
+info:
+  contact:
+    email: tobias.vida@live.com
+    name: Tobias Alves
+    url: https://github.com/TobiasTac
+  description: Product API with auhtentication
+  license:
+    name: TAC License
+    url: https://github.com/TobiasTac/go-product-api
+  termsOfService: http://swagger.io/terms/
+  title: Go Product API
+  version: "1.0"
+paths: {}
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
