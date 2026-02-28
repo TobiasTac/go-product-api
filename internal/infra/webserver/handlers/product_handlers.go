@@ -27,13 +27,29 @@ func (h *ProductHandler) CreateProduct(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(r.Body).Decode(&product)
 	if err != nil {
+		msg := struct {
+			Message string `json:"message"`
+		}{
+			Message: err.Error(),
+		}
+
 		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(msg)
+
 		return
 	}
 
 	p, err := entity.NewProduct(product.Name, product.Price)
 	if err != nil {
+		msg := struct {
+			Message string `json:"message"`
+		}{
+			Message: err.Error(),
+		}
+
 		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(msg)
+
 		return
 	}
 
